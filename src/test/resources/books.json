@@ -26,5 +26,26 @@
       "isbn": {
         "isbnCode": 465789453149
       }
+    },
+  {
+    "title": "java for dummies",
+    "author": "john Deo",
+    "isbn": {
+      "isbnCode": 465789453199
     }
+  },
+  {
+    "title": "python for dummies",
+    "author": "jihane sebbani",
+    "isbn": {
+      "isbnCode": 465789453333
+    }
+  },
+  {
+    "title": "aws for dummies",
+    "author": "jihane sebbani",
+    "isbn": {
+      "isbnCode": 465789459999
+    }
+  }
 ]
