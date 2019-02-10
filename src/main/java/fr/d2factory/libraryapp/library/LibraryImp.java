@@ -27,6 +27,7 @@ public class LibraryImp implements Library {
     public void returnBook(Book book, Member member) {
         int nbrDays = (int) DAYS.between(repo.findBorrowedBookDate(book),LocalDate.now());
         member.payBook(nbrDays);
+        member.getBorrowedIsbnBooks().remove(book.getIsbn().getIsbnCode());
         repo.returnBookBorrow(book);
     }
 }

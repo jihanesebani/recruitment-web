@@ -53,11 +53,8 @@ public class LibraryTest {
     @Test
     public void a_member_can_borrow_a_book_if_book_is_available()throws HasLateBooksException, BorrowedBookException
     {
-       Student student1 = new Student();
-        student1.setWallet(200);
-        student1.setFirstYrearStudent(true);
-        //Book b=  library.borrowBook(46578964513L,student1,LocalDate.now());
-        Book b=  library.borrowBook(46578964513L,student1,LocalDate.of(2019 ,01,01));
+        residentWithLateBook.setWallet(200);
+        Book b=  library.borrowBook(46578964513L,residentWithLateBook,LocalDate.of(2018 ,01,01));
         assertNotNull(b);
 
 
@@ -113,18 +110,21 @@ public class LibraryTest {
 
    @Test
    public void g_residents_pay_20cents_for_each_day_they_keep_a_book_after_the_initial_60days(){
-       residentWithLateBook.setWallet(1000);
-       Book b= library.borrowBook(465789453149L,residentWithLateBook,LocalDate.now().minusDays(70));
-       library.returnBook(b,residentWithLateBook);
-       assertEquals((long)residentWithLateBook.getWallet(),200);
+        Resident resident = new Resident();
+       resident.setWallet(1000);
+       Book b= library.borrowBook(465789453149L,resident,LocalDate.now().minusDays(70));
+       library.returnBook(b,resident);
+       assertEquals((long)resident.getWallet(),200);
     }
 
-  @Test(expected = HasLateBooksException.class)
-  public void h_members_cannot_borrow_book_if_they_have_late_books(){
-      residentWithLateBook.setWallet(1000);
-      Book b= library.borrowBook(465789459999L,residentWithLateBook,LocalDate.now().minusDays(70));
 
-  }
+    @Test(expected = HasLateBooksException.class)
+    public void h_members_cannot_borrow_book_if_they_have_late_books(){
+        residentWithLateBook.setWallet(1000);
+        Book b= library.borrowBook(465789459999L,residentWithLateBook,LocalDate.now().minusDays(70));
+
+    }
+
 
 
 
