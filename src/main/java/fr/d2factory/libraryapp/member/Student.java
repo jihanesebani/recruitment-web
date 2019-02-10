@@ -15,12 +15,12 @@ public class Student extends  Member {
 
         if (this.IsFirstYrearStudent == true) {
             if (numberOfDays >15 && numberOfDays <=30 ) {
-                this.setWallet(this.getWallet() - (COST * numberOfDays));
+                this.setWallet(this.getWallet() - (COST * (numberOfDays-15)));
 
             }
             else if(numberOfDays > 30){
                 this.setWallet(this.getWallet() - (PINALITE_COST * (numberOfDays-30)));
-                this.setWallet(this.getWallet() - (COST * 30));
+                this.setWallet(this.getWallet() - (COST * 15));
             }
 
 
