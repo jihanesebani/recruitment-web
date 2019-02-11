@@ -38,10 +38,7 @@ public class Student extends  Member {
     @Override
     public Boolean canBorrowBooks() {
        Long nbrBookLate = this.getBorrowedIsbnBooks().entrySet().stream().filter(book ->{
-            if(this.IsFirstYrearStudent)
-                if(DAYS.between(book.getValue(), LocalDate.now()) > 45)return true;
-             else
-                if(DAYS.between(book.getValue(), LocalDate.now()) > 30)return true;
+            if(DAYS.between(book.getValue(), LocalDate.now()) > 30)return true;
             return false;
         }).count();
        return nbrBookLate <= 0;
